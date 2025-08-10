@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr3yhgah80yto"]
+
+[ext_resource type="Script" uid="uid://bhc8n30s26gfi" path="res://Scripts/spawner.gd" id="1_ohbek"]
+[ext_resource type="PackedScene" uid="uid://6dvop7f0oayk" path="res://Objects/big_stone.tscn" id="2_si0ot"]
+[ext_resource type="PackedScene" uid="uid://bkn8ba8y212o0" path="res://Objects/tree.tscn" id="3_5jbfu"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_ohbek")
+stone_scene = ExtResource("2_si0ot")
+tree_scene = ExtResource("3_5jbfu")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

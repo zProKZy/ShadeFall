@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg10qmkdkye0e"]
+
+[ext_resource type="FontFile" uid="uid://dqgk5mk6g0y7u" path="res://Font/RasterForgeRegular.ttf" id="1_4geyq"]
+[ext_resource type="Script" uid="uid://bmifsbp1eemqi" path="res://Scripts/settings.gd" id="1_i44u3"]
+[ext_resource type="Script" uid="uid://evve0gv2hi2k" path="res://Scripts/sound_slider.gd" id="3_lhmql"]
+
+[sub_resource type="Environment" id="Environment_lhmql"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i44u3"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i44u3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lhmql")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1.5, 1.5, 1.5, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -156.5
+offset_right = 208.0
+offset_bottom = 156.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings_top" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.5
+offset_top = -60.0
+offset_right = 137.5
+offset_bottom = -15.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_4geyq")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="sound_slider" type="HSlider" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 69.0
+offset_top = -84.5
+offset_right = 166.0
+offset_bottom = -68.5
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+ticks_on_borders = true
+script = ExtResource("3_lhmql")
+
+[node name="main_sound" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 62.5
+offset_right = -48.0
+offset_bottom = 85.5
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_4geyq")
+text = "Main Sound"
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -97.0
+offset_right = 65.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.485703, 0.485704, 0.485703, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_4geyq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i44u3")
+text = "Back"
+flat = true
+
+[node name="exit_game" type="Button" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -39.0
+offset_right = 53.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_4geyq")
+text = "Exit game"
+flat = true
+
+[connection signal="value_changed" from="Panel/sound_slider" to="Panel/sound_slider" method="_on_value_changed"]
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/exit_game" to="." method="_on_exit_game_pressed"]

@@ -1,0 +1,796 @@
+[gd_scene load_steps=45 format=3 uid="uid://wbump3p6sjqq"]
+
+[ext_resource type="Script" uid="uid://crhprfj76c15x" path="res://Scripts/upgrade_tools_gui.gd" id="1_0aufk"]
+[ext_resource type="FontFile" uid="uid://dqgk5mk6g0y7u" path="res://Font/RasterForgeRegular.ttf" id="1_syypd"]
+[ext_resource type="Texture2D" uid="uid://0x8injetcjxg" path="res://Tiles/coin1_16x16.png" id="2_udsr6"]
+[ext_resource type="AudioStream" uid="uid://bkq8qju58xiug" path="res://Sounds/incorrect.wav" id="4_g334k"]
+[ext_resource type="Texture2D" uid="uid://ck64pknc53n5f" path="res://Tiles/tools.png" id="4_mrldr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g334k"]
+atlas = ExtResource("2_udsr6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mrldr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g334k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syypd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udsr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrldr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fadrb"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrldr"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twvdj"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5y42"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h56rd"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eb3s"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlqrj"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uks84"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g5ri"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twvdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fadrb")
+}],
+"loop": true,
+"name": &"tier_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrldr")
+}],
+"loop": true,
+"name": &"tier_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twvdj")
+}],
+"loop": true,
+"name": &"tier_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5y42")
+}],
+"loop": true,
+"name": &"tier_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h56rd")
+}],
+"loop": true,
+"name": &"tier_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eb3s")
+}],
+"loop": true,
+"name": &"tier_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlqrj")
+}],
+"loop": true,
+"name": &"tier_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uks84")
+}],
+"loop": true,
+"name": &"tier_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g5ri")
+}],
+"loop": true,
+"name": &"tier_9",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4vvg"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0kcg"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsyf2"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7tc4"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pya6"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mth7"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj8ng"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m53gb"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5y0n"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iflj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4vvg")
+}],
+"loop": true,
+"name": &"tier_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0kcg")
+}],
+"loop": true,
+"name": &"tier_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsyf2")
+}],
+"loop": true,
+"name": &"tier_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7tc4")
+}],
+"loop": true,
+"name": &"tier_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pya6")
+}],
+"loop": true,
+"name": &"tier_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mth7")
+}],
+"loop": true,
+"name": &"tier_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj8ng")
+}],
+"loop": true,
+"name": &"tier_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m53gb")
+}],
+"loop": true,
+"name": &"tier_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5y0n")
+}],
+"loop": true,
+"name": &"tier_9",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqc4k"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iflj4"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4u2d"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ektb"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frsq8"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2g7e"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke3v2"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8r0s"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnw07"]
+atlas = ExtResource("4_mrldr")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5j53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqc4k")
+}],
+"loop": true,
+"name": &"tier_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iflj4")
+}],
+"loop": true,
+"name": &"tier_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4u2d")
+}],
+"loop": true,
+"name": &"tier_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ektb")
+}],
+"loop": true,
+"name": &"tier_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frsq8")
+}],
+"loop": true,
+"name": &"tier_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2g7e")
+}],
+"loop": true,
+"name": &"tier_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke3v2")
+}],
+"loop": true,
+"name": &"tier_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8r0s")
+}],
+"loop": true,
+"name": &"tier_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnw07")
+}],
+"loop": true,
+"name": &"tier_9",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cy2sr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0aufk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syypd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0aufk"]
+
+[node name="Upgrade_tools" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_0aufk")
+
+[node name="Enchance_panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.5
+offset_top = -107.0
+offset_right = 249.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="coin_sprite" type="AnimatedSprite2D" parent="Enchance_panel"]
+position = Vector2(483.5, 17)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_mrldr")
+
+[node name="coins" type="Label" parent="Enchance_panel"]
+layout_mode = 0
+offset_left = 303.5
+offset_top = 10.0
+offset_right = 470.5
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "0"
+horizontal_alignment = 2
+
+[node name="enchance" type="Label" parent="Enchance_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_top = 24.0
+offset_right = 61.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.666667, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "Enchance"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level_label" type="VBoxContainer" parent="Enchance_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.5
+offset_top = -30.0
+offset_right = -145.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 29
+
+[node name="axe_lvl" type="Label" parent="Enchance_panel/level_label"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "Lv.1"
+
+[node name="pickaxe_lvl" type="Label" parent="Enchance_panel/level_label"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "Lv.1"
+
+[node name="scythe_lvl" type="Label" parent="Enchance_panel/level_label"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "Lv.1"
+
+[node name="coins_label" type="VBoxContainer" parent="Enchance_panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -30.0
+offset_right = -83.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 29
+
+[node name="coins_req_axe" type="Label" parent="Enchance_panel/coins_label"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.964706, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "300"
+horizontal_alignment = 1
+
+[node name="coins_req_pickaxe" type="Label" parent="Enchance_panel/coins_label"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.964706, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "300"
+horizontal_alignment = 1
+
+[node name="coins_req_scythe" type="Label" parent="Enchance_panel/coins_label"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.964706, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "300"
+horizontal_alignment = 1
+
+[node name="Name_bttn" type="VBoxContainer" parent="Enchance_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -33.0
+offset_right = 39.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Enchance Axe" type="Button" parent="Enchance_panel/Name_bttn"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_syypd")
+text = "Enchance Axe"
+flat = true
+alignment = 0
+
+[node name="Enchance Pickaxe" type="Button" parent="Enchance_panel/Name_bttn"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_syypd")
+text = "Enchance Pickaxe"
+flat = true
+alignment = 0
+
+[node name="Enchance Scythe" type="Button" parent="Enchance_panel/Name_bttn"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_syypd")
+text = "Enchance Scythe"
+flat = true
+alignment = 0
+
+[node name="back_enchance" type="Button" parent="Enchance_panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -29.0
+offset_right = -8.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.984314, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_syypd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_udsr6")
+text = "back"
+flat = true
+
+[node name="Upgrade_panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -249.0
+offset_top = -107.0
+offset_right = 250.0
+offset_bottom = 107.0
+
+[node name="upgrade" type="Label" parent="Upgrade_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 24.0
+offset_right = 42.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="coin_sprite" type="AnimatedSprite2D" parent="Upgrade_panel"]
+position = Vector2(483.5, 17)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_mrldr")
+
+[node name="coins" type="Label" parent="Upgrade_panel"]
+layout_mode = 0
+offset_left = 303.5
+offset_top = 10.0
+offset_right = 470.5
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "0"
+horizontal_alignment = 2
+
+[node name="cost" type="HBoxContainer" parent="Upgrade_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = 44.0
+offset_right = 164.5
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="axe_cost" type="Label" parent="Upgrade_panel/cost"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "1k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pick_cost" type="Label" parent="Upgrade_panel/cost"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "1k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scythe_cost" type="Label" parent="Upgrade_panel/cost"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "1k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button" type="HBoxContainer" parent="Upgrade_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = -46.0
+offset_right = 164.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="axe_upgrade" type="Button" parent="Upgrade_panel/button"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mrldr")
+
+[node name="axe" type="AnimatedSprite2D" parent="Upgrade_panel/button/axe_upgrade"]
+position = Vector2(48, 43.5)
+scale = Vector2(3, 2.78125)
+sprite_frames = SubResource("SpriteFrames_twvdj")
+animation = &"tier_1"
+
+[node name="pick_upgrade" type="Button" parent="Upgrade_panel/button"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mrldr")
+
+[node name="pickaxe" type="AnimatedSprite2D" parent="Upgrade_panel/button/pick_upgrade"]
+position = Vector2(48, 40)
+scale = Vector2(3, 2.8125)
+sprite_frames = SubResource("SpriteFrames_iflj4")
+animation = &"tier_1"
+
+[node name="scythe_upgrade" type="Button" parent="Upgrade_panel/button"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mrldr")
+
+[node name="scythe" type="AnimatedSprite2D" parent="Upgrade_panel/button/scythe_upgrade"]
+position = Vector2(55, 45)
+scale = Vector2(3, 2.8125)
+sprite_frames = SubResource("SpriteFrames_u5j53")
+animation = &"tier_1"
+
+[node name="back_upgrade" type="Button" parent="Upgrade_panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -27.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cy2sr")
+text = "back"
+
+[node name="choice_panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.5
+offset_top = -107.0
+offset_right = 249.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="make_a_wish" type="Label" parent="choice_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_top = 28.0
+offset_right = 61.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.666667, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+text = "Make a wish"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="choice_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -38.5
+offset_right = 150.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Enchance" type="Button" parent="choice_panel/HBoxContainer"]
+modulate = Color(2, 2, 2, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(100, 100, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0aufk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_syypd")
+text = "Enchance"
+
+[node name="Upgrade" type="Button" parent="choice_panel/HBoxContainer"]
+modulate = Color(2, 2, 2, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.862745, 0.121569, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_syypd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0aufk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0aufk")
+text = "Upgrade"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g334k")
+
+[connection signal="pressed" from="Enchance_panel/Name_bttn/Enchance Axe" to="." method="_on_enchance_axe_pressed"]
+[connection signal="pressed" from="Enchance_panel/Name_bttn/Enchance Pickaxe" to="." method="_on_enchance_pickaxe_pressed"]
+[connection signal="pressed" from="Enchance_panel/Name_bttn/Enchance Scythe" to="." method="_on_enchance_scythe_pressed"]
+[connection signal="pressed" from="Enchance_panel/back_enchance" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Upgrade_panel/button/axe_upgrade" to="." method="_on_axe_upgrade_pressed"]
+[connection signal="pressed" from="Upgrade_panel/button/pick_upgrade" to="." method="_on_pick_upgrade_pressed"]
+[connection signal="pressed" from="Upgrade_panel/button/scythe_upgrade" to="." method="_on_scythe_upgrade_pressed"]
+[connection signal="pressed" from="Upgrade_panel/back_upgrade" to="." method="_on_back_upgrade_pressed"]
+[connection signal="pressed" from="choice_panel/HBoxContainer/Enchance" to="." method="_on_enchance_pressed"]
+[connection signal="pressed" from="choice_panel/HBoxContainer/Upgrade" to="." method="_on_upgrade_pressed"]

@@ -1,0 +1,295 @@
+[gd_scene load_steps=28 format=3 uid="uid://tedqkwhljlla"]
+
+[ext_resource type="Script" uid="uid://br38m27ifk0pk" path="res://Scripts/UI_count.gd" id="1_tsbx5"]
+[ext_resource type="Texture2D" uid="uid://ie7figw6autx" path="res://Tiles/more_stone.png" id="1_yqtc1"]
+[ext_resource type="FontFile" uid="uid://dqgk5mk6g0y7u" path="res://Font/RasterForgeRegular.ttf" id="2_na4qu"]
+[ext_resource type="Texture2D" uid="uid://ck64pknc53n5f" path="res://Tiles/tools.png" id="3_tj2bt"]
+[ext_resource type="Texture2D" uid="uid://0x8injetcjxg" path="res://Tiles/coin1_16x16.png" id="4_acvpo"]
+[ext_resource type="AudioStream" uid="uid://cr2o4c1irndrt" path="res://Sounds/level_up.wav" id="6_iu14u"]
+[ext_resource type="PackedScene" uid="uid://wbump3p6sjqq" path="res://Scenes/upgrade_tools.tscn" id="8_8kc7d"]
+[ext_resource type="PackedScene" uid="uid://dtmh6cc25ct0c" path="res://Scenes/sell_items.tscn" id="8_s75lh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj2bt"]
+atlas = ExtResource("4_acvpo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iu14u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj2bt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu14u"]
+atlas = ExtResource("3_tj2bt")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uey14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu14u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kc7d"]
+atlas = ExtResource("3_tj2bt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s75lh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kc7d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6sx2"]
+atlas = ExtResource("3_tj2bt")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wn0uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6sx2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na4qu"]
+atlas = ExtResource("1_yqtc1")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsbx5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na4qu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqtc1"]
+atlas = ExtResource("1_yqtc1")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acvpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqtc1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsbx5"]
+atlas = ExtResource("1_yqtc1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj2bt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsbx5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj2bt"]
+bg_color = Color(0, 0, 0, 0.631373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iu14u"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iu14u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uey14"]
+
+[sub_resource type="Environment" id="Environment_tj2bt"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[node name="Camera" type="Node2D"]
+script = ExtResource("1_tsbx5")
+
+[node name="Level_up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_iu14u")
+volume_db = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="VBoxContainer_right" type="VBoxContainer" parent="Camera2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+offset_top = -142.0
+offset_right = 247.0
+offset_bottom = -49.0
+theme_override_constants/separation = 11
+
+[node name="coin" type="AnimatedSprite2D" parent="Camera2D/VBoxContainer_right"]
+position = Vector2(263, 7)
+sprite_frames = SubResource("SpriteFrames_iu14u")
+
+[node name="pickaxe" type="AnimatedSprite2D" parent="Camera2D/VBoxContainer_right"]
+position = Vector2(263, 28)
+scale = Vector2(0.78125, 0.71875)
+sprite_frames = SubResource("SpriteFrames_uey14")
+
+[node name="axe" type="AnimatedSprite2D" parent="Camera2D/VBoxContainer_right"]
+position = Vector2(263, 55)
+scale = Vector2(0.78125, 0.71875)
+sprite_frames = SubResource("SpriteFrames_s75lh")
+
+[node name="scythe" type="AnimatedSprite2D" parent="Camera2D/VBoxContainer_right"]
+position = Vector2(263, 83)
+scale = Vector2(0.78125, 0.71875)
+sprite_frames = SubResource("SpriteFrames_wn0uo")
+
+[node name="coin_text" type="Label" parent="Camera2D/VBoxContainer_right"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+horizontal_alignment = 2
+
+[node name="pickaxe_text" type="Label" parent="Camera2D/VBoxContainer_right"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+horizontal_alignment = 2
+
+[node name="axe_text" type="Label" parent="Camera2D/VBoxContainer_right"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+horizontal_alignment = 2
+
+[node name="scythe_text" type="Label" parent="Camera2D/VBoxContainer_right"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+horizontal_alignment = 2
+
+[node name="VBoxContainer_left" type="VBoxContainer" parent="Camera2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+offset_left = -246.0
+offset_top = -143.0
+offset_bottom = -80.0
+
+[node name="stone_text" type="Label" parent="Camera2D/VBoxContainer_left"]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+
+[node name="branch_text" type="Label" parent="Camera2D/VBoxContainer_left"]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+
+[node name="grass_text" type="Label" parent="Camera2D/VBoxContainer_left"]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+
+[node name="stone" type="AnimatedSprite2D" parent="Camera2D/VBoxContainer_left"]
+position = Vector2(-16, 7)
+sprite_frames = SubResource("SpriteFrames_tsbx5")
+
+[node name="branch" type="AnimatedSprite2D" parent="Camera2D/VBoxContainer_left"]
+position = Vector2(-17, 29)
+scale = Vector2(0.78125, 1)
+sprite_frames = SubResource("SpriteFrames_acvpo")
+
+[node name="grass" type="AnimatedSprite2D" parent="Camera2D/VBoxContainer_left"]
+position = Vector2(-17, 52)
+sprite_frames = SubResource("SpriteFrames_tj2bt")
+
+[node name="XP_bar" type="ProgressBar" parent="Camera2D"]
+modulate = Color(10, 10, 10, 1)
+offset_left = -288.0
+offset_top = 160.0
+offset_right = 288.0
+offset_bottom = 162.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tj2bt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iu14u")
+show_percentage = false
+
+[node name="level_text" type="Label" parent="Camera2D"]
+modulate = Color(10, 10, 10, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 150.0
+offset_right = 25.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("2_na4qu")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Sell_items" parent="Camera2D" instance=ExtResource("8_s75lh")]
+
+[node name="Sell" type="Button" parent="Camera2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 110.0
+offset_right = -224.0
+offset_bottom = 153.0
+grow_horizontal = 2
+theme_override_colors/font_hover_color = Color(0.306923, 0.306923, 0.306923, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_na4qu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iu14u")
+text = "Sell"
+flat = true
+
+[node name="Upgrade" type="Button" parent="Camera2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+offset_left = 185.0
+offset_top = 110.0
+offset_right = 277.0
+offset_bottom = 153.0
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_na4qu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uey14")
+text = "upgrade"
+flat = true
+
+[node name="Upgrade_tools" parent="Camera2D" instance=ExtResource("8_8kc7d")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera2D"]
+environment = SubResource("Environment_tj2bt")
+
+[connection signal="pressed" from="Camera2D/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="Camera2D/Upgrade" to="." method="_on_upgrade_pressed"]

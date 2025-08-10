@@ -1,0 +1,178 @@
+[gd_scene load_steps=23 format=3 uid="uid://b76m2pr8w3g1w"]
+
+[ext_resource type="FontFile" uid="uid://dqgk5mk6g0y7u" path="res://Font/RasterForgeRegular.ttf" id="1_28flt"]
+[ext_resource type="Script" uid="uid://cqw5h6lq0on6b" path="res://Scripts/main_menu.gd" id="1_n45e2"]
+[ext_resource type="Texture2D" uid="uid://c1u0csswto0hs" path="res://Tiles/ELR_SpringlLeaf.png" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://c0wic7gvsmfmo" path="res://Tiles/Pictures/background.png" id="2_cp0ys"]
+[ext_resource type="PackedScene" uid="uid://jctrccrj4aoy" path="res://Scenes/fade_cut_scene.tscn" id="5_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://dry8i17sbd1g5" path="res://Tiles/Pictures/shadefall_logo.png" id="6_opfnp"]
+[ext_resource type="PackedScene" uid="uid://bg10qmkdkye0e" path="res://Scenes/settings.tscn" id="8_trj04"]
+[ext_resource type="Script" uid="uid://d17vet7axfbos" path="res://Scripts/shade_fall.gd" id="8_yhxw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48xlc"]
+
+[sub_resource type="Gradient" id="Gradient_opfnp"]
+offsets = PackedFloat32Array(0, 0.501873, 0.992509)
+colors = PackedColorArray(1, 1, 1, 0, 0.695503, 0.695503, 0.695503, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_48xlc"]
+gradient = SubResource("Gradient_opfnp")
+width = 1
+height = 32
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_1ehe0"]
+colors = PackedColorArray(1, 1, 1, 0.0941176, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cp0ys"]
+gradient = SubResource("Gradient_1ehe0")
+
+[sub_resource type="Gradient" id="Gradient_n45e2"]
+offsets = PackedFloat32Array(0, 0.524664, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yhxw7"]
+gradient = SubResource("Gradient_n45e2")
+
+[sub_resource type="Curve" id="Curve_cp0ys"]
+_limits = [-200.0, 200.0, -200.0, 200.0]
+_data = [Vector2(-200, 0.341309), 0.0, 2.29039, 0, 0, Vector2(-145.382, 142.321), 0.0, 0.0, 0, 0, Vector2(-100.402, 13.6519), 0.0, 0.0, 0, 0, Vector2(-31.3253, 106.826), 0.0, 0.0, 0, 0, Vector2(5.62248, 26.9625), 0.0, 0.0, 0, 0, Vector2(74.6988, 129.01), 0.0, 0.0, 0, 0, Vector2(100.402, 26.9625), 0.0, 0.0, 0, 0, Vector2(142.169, 146.758), 0.0, 0.0, 0, 0, Vector2(166.265, 22.5256), 0.0, 0.0, 0, 0, Vector2(200, 137.884), 0.0, 0.0, 0, 0]
+point_count = 10
+
+[sub_resource type="CurveTexture" id="CurveTexture_trj04"]
+curve = SubResource("Curve_cp0ys")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_28flt"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 200, 1)
+gravity = Vector3(100, 20, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 6.0
+tangential_accel_curve = SubResource("CurveTexture_trj04")
+scale_min = 1.5
+scale_max = 1.8
+color_ramp = SubResource("GradientTexture1D_yhxw7")
+color_initial_ramp = SubResource("GradientTexture1D_cp0ys")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1ehe0"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_ce3w2"]
+offsets = PackedFloat32Array(0, 0.161435, 0.735426, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_trj04"]
+gradient = SubResource("Gradient_ce3w2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_opfnp"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 400, 1)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_trj04")
+anim_offset_max = 1.0
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n45e2")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(613.25, 208)
+scale = Vector2(0.63501, 0.618164)
+texture = ExtResource("2_cp0ys")
+
+[node name="Settings" parent="." instance=ExtResource("8_trj04")]
+layout_mode = 1
+offset_left = 71.0
+offset_top = 33.0
+offset_right = 71.0
+offset_bottom = 33.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -29.0
+offset_right = 516.0
+offset_bottom = 158.0
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.60933, 0.60933, 0.60933, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_48xlc")
+action_mode = 0
+text = "Start"
+flat = true
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.60933, 0.60933, 0.60933, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_48xlc")
+action_mode = 0
+text = "Exit"
+flat = true
+
+[node name="wind_particles" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(-26, 242)
+amount = 15
+texture = SubResource("GradientTexture2D_48xlc")
+lifetime = 5.0
+preprocess = 2.0
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_28flt")
+
+[node name="leaves_fall_particles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_1ehe0")
+position = Vector2(548, 312)
+amount = 25
+texture = ExtResource("2_48xlc")
+visibility_rect = Rect2(-500, -200, 1000, 400)
+process_material = SubResource("ParticleProcessMaterial_opfnp")
+
+[node name="ShadeFall" type="Sprite2D" parent="."]
+position = Vector2(274, 140)
+texture = ExtResource("6_opfnp")
+script = ExtResource("8_yhxw7")
+
+[node name="fade_cut_scene" parent="." instance=ExtResource("5_cp0ys")]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

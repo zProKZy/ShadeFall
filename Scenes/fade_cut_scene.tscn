@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://jctrccrj4aoy"]
+
+[ext_resource type="Script" uid="uid://boo7840jrtiwi" path="res://Scripts/fade_cut_scene.gd" id="1_fbb66"]
+
+[sub_resource type="Animation" id="Animation_hwjxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_geirw"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rsiac"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bmuq"]
+_data = {
+&"RESET": SubResource("Animation_hwjxs"),
+&"fade_in": SubResource("Animation_geirw"),
+&"fade_out": SubResource("Animation_rsiac")
+}
+
+[node name="fade_cut_scene" type="Node2D"]
+script = ExtResource("1_fbb66")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -55.0
+offset_top = -58.0
+offset_right = 1223.0
+offset_bottom = 713.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3bmuq")
+}
